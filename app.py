@@ -34,7 +34,11 @@ def multiply(number1, number2):
 @app.route('/sayntimes/<word>/<n>')
 def sayntimes(word, n):
     """repeat a string a given number of times"""
-    return f'{word*int(n)}'
+    if n.isdigit():
+        word = word+' '
+        return f'{word*int(n)}'
+    else: 
+        return 'Invalid input. Please try again by entering a word and a number!'
 
 @app.route('/dicegame')
 def dicegame():
